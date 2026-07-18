@@ -1,145 +1,54 @@
-/*
-	Solid State by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
+/* Aaron Matson — portfolio interactions. Vanilla, no dependencies. */
+(function () {
+  "use strict";
 
-(function($) {
+  var header = document.querySelector(".site-header");
+  var toggle = document.querySelector(".nav-toggle");
+  var navLinks = document.getElementById("nav-links");
 
-	var	$window = $(window),
-		$body = $('body'),
-		$header = $('#header'),
-		$banner = $('#banner');
+  /* Sticky header background once scrolled */
+  function onScroll() {
+    if (window.scrollY > 24) header.classList.add("scrolled");
+    else header.classList.remove("scrolled");
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
 
-	// Breakpoints.
-		breakpoints({
-			xlarge:	'(max-width: 1680px)',
-			large:	'(max-width: 1280px)',
-			medium:	'(max-width: 980px)',
-			small:	'(max-width: 736px)',
-			xsmall:	'(max-width: 480px)'
-		});
+  /* Mobile menu */
+  function closeMenu() {
+    navLinks.classList.remove("open");
+    toggle.classList.remove("open");
+    toggle.setAttribute("aria-expanded", "false");
+  }
+  toggle.addEventListener("click", function () {
+    var open = navLinks.classList.toggle("open");
+    toggle.classList.toggle("open", open);
+    toggle.setAttribute("aria-expanded", String(open));
+  });
+  navLinks.addEventListener("click", function (e) {
+    if (e.target.tagName === "A") closeMenu();
+  });
 
-	// Play initial animations on page load.
-		$window.on('load', function() {
-			window.setTimeout(function() {
-				$body.removeClass('is-preload');
-			}, 100);
-		});
+  /* Scroll-reveal */
+  var revealEls = document.querySelectorAll(".reveal");
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in");
+            io.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
+    );
+    revealEls.forEach(function (el) { io.observe(el); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add("in"); });
+  }
 
-	// Header.
-		if ($banner.length > 0
-		&&	$header.hasClass('alt')) {
-
-			$window.on('resize', function() { $window.trigger('scroll'); });
-
-			$banner.scrollex({
-				bottom:		$header.outerHeight(),
-				terminate:	function() { $header.removeClass('alt'); },
-				enter:		function() { $header.addClass('alt'); },
-				leave:		function() { $header.removeClass('alt'); }
-			});
-
-		}
-
-	// Menu.
-		var $menu = $('#menu');
-
-		$menu._locked = false;
-
-		$menu._lock = function() {
-
-			if ($menu._locked)
-				return false;
-
-			$menu._locked = true;
-
-			window.setTimeout(function() {
-				$menu._locked = false;
-			}, 350);
-
-			return true;
-
-		};
-
-		$menu._show = function() {
-
-			if ($menu._lock())
-				$body.addClass('is-menu-visible');
-
-		};
-
-		$menu._hide = function() {
-
-			if ($menu._lock())
-				$body.removeClass('is-menu-visible');
-
-		};
-
-		$menu._toggle = function() {
-
-			if ($menu._lock())
-				$body.toggleClass('is-menu-visible');
-
-		};
-
-		$menu
-			.appendTo($body)
-			.on('click', function(event) {
-
-				event.stopPropagation();
-
-				// Hide.
-					$menu._hide();
-
-			})
-			.find('.inner')
-				.on('click', '.close', function(event) {
-
-					event.preventDefault();
-					event.stopPropagation();
-					event.stopImmediatePropagation();
-
-					// Hide.
-						$menu._hide();
-
-				})
-				.on('click', function(event) {
-					event.stopPropagation();
-				})
-				.on('click', 'a', function(event) {
-
-					var href = $(this).attr('href');
-
-					event.preventDefault();
-					event.stopPropagation();
-
-					// Hide.
-						$menu._hide();
-
-					// Redirect.
-						window.setTimeout(function() {
-							window.location.href = href;
-						}, 350);
-
-				});
-
-		$body
-			.on('click', 'a[href="#menu"]', function(event) {
-
-				event.stopPropagation();
-				event.preventDefault();
-
-				// Toggle.
-					$menu._toggle();
-
-			})
-			.on('keydown', function(event) {
-
-				// Hide on escape.
-					if (event.keyCode == 27)
-						$menu._hide();
-
-			});
-
-})(jQuery);
+  /* Current year */
+  var yr = document.getElementById("year");
+  if (yr) yr.textContent = new Date().getFullYear();
+})();
