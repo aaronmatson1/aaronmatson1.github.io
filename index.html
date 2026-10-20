@@ -1,10 +1,7 @@
 <!doctype html>
 <!--
   Aaron Matson portfolio
-  TODO before launch: search this file for class="tbd" and replace each placeholder.
-  - Gabb metrics (compliance scorer, agent adoption)
-  - LinkedIn URL
-  - E-commerce Brain description
+  When self-hosting goes live: update "This website" status and footer.
 -->
 <html lang="en">
 <head>
@@ -185,30 +182,42 @@ footer .wrap{display:flex; justify-content:space-between; gap:1rem; flex-wrap:wr
   <section id="ai-work">
     <div class="wrap">
       <h2>AI work</h2>
-      <p class="intro">Tools and rollouts inside a real company, with real compliance rules and real people who have to adopt them.</p>
+      <p class="intro">Tools and rollouts inside a real company, with real constraints and real people who have to adopt them.</p>
 
       <article class="item">
         <div>
-          <h3>Marketing compliance scorer</h3>
+          <h3>eCom Brain</h3>
           <p class="meta">Gabb Wireless</p>
-          <span class="status">Shipped</span>
+          <span class="status wip">Pilot</span>
         </div>
         <div class="body">
-          <p>An LLM-based tool that scores marketing content against compliance requirements. Reviewers start from flagged issues instead of a cold read.</p>
-          <p class="outcome">Result: <span class="tbd">[review time or volume, before and after]</span></p>
+          <p>Developers ask Claude how something in the eCom codebase works and get an answer grounded in our own docs. No more tapping the one person who knows.</p>
+          <p>I pitched it, built it, and wrote the guides behind it. 17 of them, one per repo. Claude reads only the section it needs.</p>
+          <p class="outcome">A typical answer dropped from 32k tokens of context to 3 to 8k. Developers on the team are installing it now.</p>
         </div>
       </article>
 
       <article class="item">
         <div>
-          <h3>Company-wide AI agent adoption</h3>
+          <h3>Ticket-to-merge agent pipeline</h3>
           <p class="meta">Gabb Wireless</p>
-          <span class="status">Led</span>
+          <span class="status">In use</span>
         </div>
         <div class="body">
-          <p>Led the rollout of AI agents across the company. The tools were the easy part. The work was getting teams to actually use them, every week, on their own jobs.</p>
-          <p>Built a shared repo of agent configurations so each team starts from a working setup, not a blank prompt.</p>
-          <p class="outcome">Result: <span class="tbd">[teams onboarded, % active, hours saved]</span></p>
+          <p>Seven agents that take a ticket from code to tests to QA to security review, and hand back a merge request ready for a human.</p>
+          <p>The review agents also flag marketing language that needs a compliance look before it ships. Every coding agent reads the same shared standards, so they all build the same way.</p>
+        </div>
+      </article>
+
+      <article class="item">
+        <div>
+          <h3>AI-native team rollout</h3>
+          <p class="meta">Gabb Wireless, eCom team</p>
+          <span class="status wip">Underway</span>
+        </div>
+        <div class="body">
+          <p>Started this summer with one team and no mandate. Starter skills for real eCom work, hands-on workshops, and a baseline so we can measure the change instead of guessing.</p>
+          <p>The tools are the easy part. Getting people to use them every week, on their own jobs, is the work.</p>
         </div>
       </article>
 
@@ -225,17 +234,6 @@ footer .wrap{display:flex; justify-content:space-between; gap:1rem; flex-wrap:wr
             <li><strong>Weekly Performance Tracker.</strong> Pulls the week's numbers into one view, so the Monday meeting starts with facts.</li>
             <li><strong>Career-Ops pipeline.</strong> A job-search workflow: find roles, tailor applications, track every step.</li>
           </ul>
-        </div>
-      </article>
-
-      <article class="item">
-        <div>
-          <h3>E-commerce Brain</h3>
-          <p class="meta">Team project</p>
-          <span class="status wip">In progress</span>
-        </div>
-        <div class="body">
-          <p><span class="tbd">[One or two sentences on what it does and who it's for]</span></p>
         </div>
       </article>
     </div>
@@ -359,7 +357,7 @@ footer .wrap{display:flex; justify-content:space-between; gap:1rem; flex-wrap:wr
       <p class="intro">Hiring, consulting, or just comparing homelab setups.</p>
       <a class="big" href="mailto:matsonaaron1@gmail.com">matsonaaron1@gmail.com</a>
       <ul class="links">
-        <li><a href="https://www.linkedin.com/in/" class="tbd">LinkedIn [add URL]</a></li>
+        <li><a href="https://www.linkedin.com/in/aaronmatson1">LinkedIn</a></li>
         <li><a href="https://github.com/aaronmatson1">GitHub</a></li>
       </ul>
     </div>
