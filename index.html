@@ -1,186 +1,377 @@
-<!DOCTYPE HTML>
+<!doctype html>
 <!--
-	Solid State by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+  Aaron Matson portfolio
+  TODO before launch: search this file for class="tbd" and replace each placeholder.
+  - Gabb metrics (compliance scorer, agent adoption)
+  - LinkedIn URL
+  - E-commerce Brain description
 -->
-<html>
-	<head>
-		<title>Aaron Matson Portfolio</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aaron Matson</title>
+<meta name="description" content="Aaron Matson. AI enablement consultant and builder in Utah. I help teams put AI to work inside real workflows.">
+<meta property="og:title" content="Aaron Matson">
+<meta property="og:description" content="AI enablement consultant and builder in Utah.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:ital,wght@0,400;0,500;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F6F7F4;
+  --ink:#1E272B;
+  --muted:#56626A;
+  --lake:#2C6E7A;
+  --sage:#7C8C68;
+  --rule:#D9DED8;
+  --ridge-far:#DCE2DA;
+  --ridge-near:#C3CDBE;
+  --tbd-bg:#FFF4C2;
+  --tbd-ink:#5C4A00;
+  color-scheme:light dark;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#151B1E; --ink:#E7EBE6; --muted:#9AA6AC; --lake:#6FB3BF; --sage:#9DAE87;
+    --rule:#2C363A; --ridge-far:#1F282C; --ridge-near:#2A3530; --tbd-bg:#4A3F12; --tbd-ink:#FFE89A;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#151B1E; --ink:#E7EBE6; --muted:#9AA6AC; --lake:#6FB3BF; --sage:#9DAE87;
+  --rule:#2C363A; --ridge-far:#1F282C; --ridge-near:#2A3530; --tbd-bg:#4A3F12; --tbd-ink:#FFE89A;
+}
 
-		<!-- Page Wrapper -->
-			<div id="page-wrapper">
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:"Schibsted Grotesk",system-ui,sans-serif;
+  font-size:1.0625rem; line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--lake); text-underline-offset:.2em; text-decoration-thickness:1px}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:2px solid var(--lake); outline-offset:3px; border-radius:2px}
 
-				<!-- Header -->
-					<header id="header" class="alt">
-						<!--<h1><a href="index.html">I'm Aaron.</a></h1>-->
-						<a href="index.html"<img src="/images/logo.svg" alt="logo"></a>
-						<nav>
-							<a href="#menu">Menu</a>
-						</nav>
-					</header>
+.wrap{max-width:68rem; margin:0 auto; padding:0 1.5rem}
 
-				<!-- Menu -->
-					<nav id="menu">
-						<div class="inner">
-							<h2>Menu</h2>
-							<ul class="links">
-								<li><a href="index.html">Home</a></li>
-								<li><a href="generic.html">Generic</a></li>
-								<li><a href="elements.html">Elements</a></li>
-								<li><a href="#">Log In</a></li>
-								<li><a href="#">Sign Up</a></li>
-							</ul>
-							<a href="#" class="close">Close</a>
-						</div>
-					</nav>
+/* nav */
+.nav{display:flex; justify-content:space-between; align-items:center; padding:1.25rem 0; gap:1rem}
+.nav .name{font-weight:800; color:var(--ink); text-decoration:none; letter-spacing:-.01em}
+.nav ul{list-style:none; display:flex; gap:1.5rem; margin:0; padding:0; flex-wrap:wrap}
+.nav ul a{color:var(--muted); text-decoration:none; font-weight:500}
+.nav ul a:hover{color:var(--ink)}
 
-				<!-- Banner -->
-					<section id="banner">
-						<div class="inner">
-							<div class="logo"><span class="icon fa-gem"></span></div>
-							<h2>Hi! I'm Aaron.</h2>
-							<p>Web Developer. Designer. Doer.
-						<!--	<div class="verticalFlip">
-			          <span>Everything.</span>
-			          <span>All the things.</span>
-			          <span>Websites.</span>
-			          <span>Apps.</span>
-			          <span>Design.</span>
-			        </div></p>
-						</div> -->
-					</section>
+/* hero */
+.hero{position:relative; padding:5rem 0 0; overflow:hidden}
+.hero h1{
+  font-size:clamp(2.6rem, 7.5vw, 5.4rem); line-height:1.02; letter-spacing:-.035em;
+  font-weight:800; margin:0 0 1.75rem; max-width:17ch; text-wrap:balance;
+}
+.hero h1 span{display:block}
+.hero h1 span + span{color:var(--muted); font-weight:700}
+.hero p.lede{font-size:1.25rem; max-width:38rem; margin:0 0 2rem; color:var(--ink)}
+.actions{display:flex; gap:.75rem; flex-wrap:wrap; margin-bottom:4rem}
+.btn{
+  display:inline-block; padding:.8rem 1.3rem; border-radius:6px; font-weight:700;
+  text-decoration:none; border:1.5px solid var(--ink); color:var(--ink);
+}
+.btn.primary{background:var(--ink); color:var(--bg)}
+.btn:hover{text-decoration:none; transform:translateY(-1px)}
+.ridge{display:block; width:100%; height:auto; margin-top:1rem}
+.ridge .line{fill:none; stroke:var(--ink); stroke-width:1.5; stroke-linejoin:round;
+  stroke-dasharray:3000; stroke-dashoffset:3000; animation:draw 2.4s ease-out .2s forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+@media (prefers-reduced-motion:reduce){
+  .ridge .line{animation:none; stroke-dashoffset:0}
+  html{scroll-behavior:auto}
+  .btn:hover{transform:none}
+}
 
-				<!-- Wrapper -->
-					<section id="wrapper">
+/* sections */
+section{padding:5rem 0 2rem}
+.ridge + section, .hero + section{padding-top:4rem}
+h2{font-size:clamp(1.8rem,3.5vw,2.4rem); letter-spacing:-.02em; line-height:1.1; margin:0 0 .6rem; font-weight:800}
+.intro{color:var(--muted); max-width:38rem; margin:0 0 2.5rem}
 
-						<!-- One -->
-							<section id="one" class="wrapper spotlight style1">
-								<div class="inner">
-									<a href="#" class="image"><img src="images/hero-2-square.jpg" alt="" /></a>
-									<div class="content">
-										<h2 class="major">History</h2>
-										<p>I first found coding in 2015 while at college going into the medical field. I began helping local businesses develop an online presence by designing websites for them. Now I'm taking it one step further and sharpening my toolset. Let me know how I can help!</p>
-										<a href="#footer" class="special">Learn more</a>
-									</div>
-								</div>
-							</section>
+.item{
+  display:grid; grid-template-columns:15rem 1fr; gap:2.5rem;
+  padding:2rem 0; border-top:1px solid var(--rule);
+}
+.item:last-child{border-bottom:1px solid var(--rule)}
+.item h3{font-size:1.3rem; line-height:1.25; margin:0 0 .4rem; letter-spacing:-.01em}
+.meta{color:var(--muted); font-size:.95rem; margin:0}
+.status{display:inline-flex; align-items:center; gap:.45rem; font-size:.9rem; color:var(--muted); margin-top:.6rem}
+.status::before{content:""; width:.5rem; height:.5rem; border-radius:50%; background:var(--sage)}
+.status.wip::before{background:transparent; border:1.5px solid var(--sage)}
+.body p{margin:0 0 .9rem; max-width:40rem}
+.body p:last-child{margin-bottom:0}
+.outcome{font-weight:700}
+.body ul{margin:.25rem 0 .9rem; padding-left:1.1rem; max-width:40rem}
+.body li{margin-bottom:.35rem}
 
-						<!-- Two -->
-						<!--	<section id="two" class="wrapper alt spotlight style2">
-								<div class="inner">
-									<a href="#" class="image"><img src="images/pic02.jpg" alt="" /></a>
-									<div class="content">
-										<h2 class="major">Tempus adipiscing</h2>
-										<p>Lorem ipsum dolor sit amet, etiam lorem adipiscing elit. Cras turpis ante, nullam sit amet turpis non, sollicitudin posuere urna. Mauris id tellus arcu. Nunc vehicula id nulla dignissim dapibus. Nullam ultrices, neque et faucibus viverra, ex nulla cursus.</p>
-										<a href="#" class="special">Learn more</a>
-									</div>
-								</div>
-							</section> -->
+.tbd{
+  background:var(--tbd-bg); color:var(--tbd-ink); padding:.05em .35em; border-radius:3px;
+  font-weight:500; border:1px dashed currentColor;
+}
 
-						<!-- Three -->
-						<!--	<section id="three" class="wrapper spotlight style3">
-								<div class="inner">
-									<a href="#" class="image"><img src="images/pic03.jpg" alt="" /></a>
-									<div class="content">
-										<h2 class="major">Nullam dignissim</h2>
-										<p>Lorem ipsum dolor sit amet, etiam lorem adipiscing elit. Cras turpis ante, nullam sit amet turpis non, sollicitudin posuere urna. Mauris id tellus arcu. Nunc vehicula id nulla dignissim dapibus. Nullam ultrices, neque et faucibus viverra, ex nulla cursus.</p>
-										<a href="#" class="special">Learn more</a>
-									</div>
-								</div>
-							</section> -->
+/* consulting tiers */
+.tiers{display:grid; grid-template-columns:repeat(3,1fr); gap:0; margin-top:1rem; border-left:1px solid var(--rule)}
+.tier{padding:.25rem 1.25rem; border-right:1px solid var(--rule)}
+.tier h4{margin:0 0 .3rem; font-size:1rem}
+.tier p{margin:0; color:var(--muted); font-size:.95rem}
 
-						<!-- Four -->
-							<section id="four" class="wrapper alt style1">
-								<div class="inner">
-									<h2 class="major">My Experience</h2>
-									<p>I've been a web designer for 4 years and a Software Engineer for 2. I would love to showcase my work for you. Take a look at some of the projects and descriptions of my work, below.</p>
-									<section class="features">
-										<article>
-											<a href="https://www.uvu.edu/chss/" class="image"><img src="images/Home Page SS.png" alt="" /></a>
-											<h3 class="major">Little Giant Ladder Systems</h3>
-											<p>I spearheaded the redesign and maintenance of our Shopify site, resulting in a significant boost in user experience and ecommerce revenue. Through collaborative efforts, we achieved a remarkable 100% improvement in conversion rate within the first 4 months, and an outstanding sales increase of 213% initially, which has grown to an impressive 927% to date.</p>
-										</article>
-										<article>
-											<a href="https://www.uvu.edu/chss/" class="image"><img src="images/mountain.jpg" alt="" /></a>
-											<h3 class="major">UVU CHSS</h3>
-											<p>While working at the University, I collaborated with staff and faculty to create web pages for the College of Humanities and Social Sciences and it's subsequent programs.</p>
-										</article>
-										<article>
-											<a href="https://www.uvu.edu/education/" class="image"><img src="images/classroom.jpg" alt="" /></a>
-											<h3 class="major">UVU School of Education</h3>
-											<p>I Collaborated with staff at the School of Education to design and develop a new site to help students become more attracted to the program.</p>
-										</article>
-										<article>
-											<a href="http://www.skinsoulretreat.com/" class="image"><img src="images/massage.jpg" alt="" /></a>
-											<h3 class="major">Skin Soul Retreat</h3>
-											<p>Skin + Soul Retreat offers a unique educational experience for estheticians, providing comprehensive training in luxury spa protocols, business coaching, leadership workshops, and networking opportunities. I helped design their website in preparation for the retreat.</p>
-										</article>
-										
-									</section>
-								</div>
-							</section>
+/* earlier work, compact */
+.earlier .item{grid-template-columns:15rem 1fr; padding:1.4rem 0}
+.earlier h3{font-size:1.1rem}
 
-					</section>
+/* about */
+.about p{font-size:1.25rem; line-height:1.5; max-width:36rem; margin:0 0 .5rem}
 
-				<!-- Footer -->
-					<section id="footer">
-						<div class="inner">
-							<h2 class="major">Get in touch</h2>
-							<form method="post" action="#">
-								<div class="fields">
-									<div class="field">
-										<label for="name">Name</label>
-										<input type="text" name="name" id="name" />
-									</div>
-									<div class="field">
-										<label for="email">Email</label>
-										<input type="email" name="email" id="email" />
-									</div>
-									<div class="field">
-										<label for="message">Message</label>
-										<textarea name="message" id="message" rows="4"></textarea>
-									</div>
-								</div>
-								<ul class="actions">
-									<li><input type="submit" value="Send Message" /></li>
-								</ul>
-							</form>
-							<ul class="contact">
-								<!--<li class="icon solid fa-home">
-									Untitled Inc<br />
-									1234 Somewhere Road Suite #2894<br />
-									Nashville, TN 00000-0000
-								</li> -->
-								<li class="icon solid fa-phone">(801) 691-3887</li>
-								<li class="icon solid fa-envelope"><a href="#">matsonaaron1@gmail.com</a></li>
-								<li class="icon brands fa-twitter"><a href="#">twitter.com/AaronMatson1</a></li>
-								<!--<li class="icon brands fa-facebook-f"><a href="#">facebook.com/untitled-tld</a></li>-->
-								<li class="icon brands fa-instagram"><a href="#">instagram.com/matsonaaron1</a></li>
-								<!--<i class="fab fa-linkedin-in"><a href="https://www.linkedin.com/in/aaronmatson1/">linkedin.com/in/aaronmatson1/</a></i>
-								<i class="fab fa-github"><a href="https://github.com/aaronmatson1"></a></i> -->
-							</ul>
-							<ul class="copyright">
-								<li>&copy; Untitled Inc. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-							</ul>
-						</div>
-					</section>
+/* contact */
+.contact{padding-bottom:3rem}
+.contact .big{font-size:clamp(1.5rem,4vw,2.4rem); font-weight:800; letter-spacing:-.02em; word-break:break-word}
+.links{display:flex; gap:1.5rem; flex-wrap:wrap; margin-top:1.25rem; padding:0; list-style:none}
 
-			</div>
+footer{border-top:1px solid var(--rule); padding:1.5rem 0 2.5rem; color:var(--muted); font-size:.9rem}
+footer .wrap{display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap}
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+@media (max-width:760px){
+  .nav ul{gap:1rem; font-size:.95rem}
+  .hero{padding-top:3rem}
+  .item, .earlier .item{grid-template-columns:1fr; gap:.75rem}
+  .tiers{grid-template-columns:1fr; border-left:none}
+  .tier{border-right:none; border-top:1px solid var(--rule); padding:1rem 0}
+  section{padding-top:3.5rem}
+}
+@media (max-width:420px){
+  .nav{flex-direction:column; align-items:flex-start}
+}
+</style>
+</head>
+<body>
 
-	</body>
+<header class="wrap">
+  <nav class="nav" aria-label="Main">
+    <a class="name" href="#top">Aaron Matson</a>
+    <ul>
+      <li><a href="#ai-work">AI work</a></li>
+      <li><a href="#builds">Builds</a></li>
+      <li><a href="#ventures">Ventures</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <h1><span>I help teams put AI to work.</span><span>Not in a deck. In the workflow.</span></h1>
+      <p class="lede">AI enablement consultant and builder at Gabb Wireless. Co-founder of Understudii. Based on the Wasatch Front, Utah.</p>
+      <div class="actions">
+        <a class="btn primary" href="#ai-work">See the work</a>
+        <a class="btn" href="mailto:matsonaaron1@gmail.com">Email me</a>
+      </div>
+    </div>
+    <!-- Wasatch ridgeline -->
+    <svg class="ridge" viewBox="0 0 1200 180" preserveAspectRatio="none" aria-hidden="true">
+      <path fill="var(--ridge-far)" d="M0 120 L70 104 L140 112 L210 86 L270 96 L340 70 L400 82 L460 58 L520 74 L590 50 L640 62 L700 44 L760 66 L830 56 L900 78 L960 64 L1030 88 L1100 76 L1200 96 L1200 180 L0 180 Z"/>
+      <path fill="var(--ridge-near)" d="M0 150 L90 132 L160 140 L250 112 L320 124 L400 98 L450 108 L520 72 L560 84 L610 40 L650 70 L700 92 L780 102 L860 94 L940 118 L1020 108 L1100 130 L1200 122 L1200 180 L0 180 Z"/>
+      <path class="line" d="M0 150 L90 132 L160 140 L250 112 L320 124 L400 98 L450 108 L520 72 L560 84 L610 40 L650 70 L700 92 L780 102 L860 94 L940 118 L1020 108 L1100 130 L1200 122"/>
+    </svg>
+  </div>
+
+  <section id="ai-work">
+    <div class="wrap">
+      <h2>AI work</h2>
+      <p class="intro">Tools and rollouts inside a real company, with real compliance rules and real people who have to adopt them.</p>
+
+      <article class="item">
+        <div>
+          <h3>Marketing compliance scorer</h3>
+          <p class="meta">Gabb Wireless</p>
+          <span class="status">Shipped</span>
+        </div>
+        <div class="body">
+          <p>An LLM-based tool that scores marketing content against compliance requirements. Reviewers start from flagged issues instead of a cold read.</p>
+          <p class="outcome">Result: <span class="tbd">[review time or volume, before and after]</span></p>
+        </div>
+      </article>
+
+      <article class="item">
+        <div>
+          <h3>Company-wide AI agent adoption</h3>
+          <p class="meta">Gabb Wireless</p>
+          <span class="status">Led</span>
+        </div>
+        <div class="body">
+          <p>Led the rollout of AI agents across the company. The tools were the easy part. The work was getting teams to actually use them, every week, on their own jobs.</p>
+          <p>Built a shared repo of agent configurations so each team starts from a working setup, not a blank prompt.</p>
+          <p class="outcome">Result: <span class="tbd">[teams onboarded, % active, hours saved]</span></p>
+        </div>
+      </article>
+
+      <article class="item">
+        <div>
+          <h3>Automation blueprints</h3>
+          <p class="meta">Reusable patterns</p>
+          <span class="status">In use</span>
+        </div>
+        <div class="body">
+          <p>Workflows I design once and reuse across teams and clients.</p>
+          <ul>
+            <li><strong>Morning Triage Report.</strong> One prioritized digest of what needs attention today, instead of a dozen scattered notifications.</li>
+            <li><strong>Weekly Performance Tracker.</strong> Pulls the week's numbers into one view, so the Monday meeting starts with facts.</li>
+            <li><strong>Career-Ops pipeline.</strong> A job-search workflow: find roles, tailor applications, track every step.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="item">
+        <div>
+          <h3>E-commerce Brain</h3>
+          <p class="meta">Team project</p>
+          <span class="status wip">In progress</span>
+        </div>
+        <div class="body">
+          <p><span class="tbd">[One or two sentences on what it does and who it's for]</span></p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="builds">
+    <div class="wrap">
+      <h2>Builds</h2>
+      <p class="intro">Things I run at home. Mostly on a Proxmox box.</p>
+
+      <article class="item">
+        <div>
+          <h3>Gatekeeper and the Kidernet</h3>
+          <p class="meta">Home network filtering</p>
+          <span class="status">Running at home</span>
+        </div>
+        <div class="body">
+          <p>Internet for kids that starts closed and opens on purpose. Allowlist-only DNS filtering with Pi-hole in a Proxmox LXC container. Khan Academy, Scratch, and Chrome Music Lab are in. Everything else is out until it's approved.</p>
+          <p>The concept adds a tiered "Digital Learner's Permit" for earning access, and the Kidernet, a curated offline content layer. Started as a hackathon pitch at Gabb.</p>
+        </div>
+      </article>
+
+      <article class="item">
+        <div>
+          <h3>This website</h3>
+          <p class="meta">Self-hosted</p>
+          <span class="status wip">Moving home</span>
+        </div>
+        <div class="body">
+          <p>Moving off GitHub Pages to my homelab. Caddy in a container, exposed through a Cloudflare Tunnel. No open ports on my home network. Push to GitHub and it deploys.</p>
+        </div>
+      </article>
+
+      <article class="item">
+        <div>
+          <h3>Family calendar bridge</h3>
+          <p class="meta">Home automation</p>
+          <span class="status">Running at home</span>
+        </div>
+        <div class="body">
+          <p>A home Linux server that connects our Skylight Calendar with SmartThings.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="ventures">
+    <div class="wrap">
+      <h2>Ventures</h2>
+      <p class="intro">Where the AI work meets people and businesses outside my day job.</p>
+
+      <article class="item">
+        <div>
+          <h3>Understudii</h3>
+          <p class="meta">Co-founder, with Matt Frisbie</p>
+          <span class="status wip">Building</span>
+        </div>
+        <div class="body">
+          <p>Apprenticeship-style mentorship and succession readiness for companies with 50 to 500 people. The idea: your next leaders are already in the building. Most companies just don't develop them on purpose.</p>
+          <p>I built the dashboard that tracks the relationship between mentor and apprentice.</p>
+        </div>
+      </article>
+
+      <article class="item">
+        <div>
+          <h3>AI consulting</h3>
+          <p class="meta">Utah small and mid-size businesses</p>
+          <span class="status">Taking clients</span>
+        </div>
+        <div class="body">
+          <p>Practical AI for businesses that don't have an AI team. Three ways to work together.</p>
+          <div class="tiers">
+            <div class="tier"><h4>AI Audit</h4><p>Find where AI saves real hours in your business.</p></div>
+            <div class="tier"><h4>Implementation Sprint</h4><p>Build and ship the first workflows with your team.</p></div>
+            <div class="tier"><h4>Advisory Retainer</h4><p>Ongoing help as tools and needs change.</p></div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="earlier" id="earlier">
+    <div class="wrap">
+      <h2>Earlier work</h2>
+      <p class="intro">Before AI, I built and ran websites. Some of that still pays off.</p>
+
+      <article class="item">
+        <div><h3>Little Giant Ladder Systems</h3><p class="meta">Shopify redesign</p></div>
+        <div class="body"><p>Led the redesign and upkeep of the Shopify store. Conversion rate up 100% in the first four months. Sales up 213% at launch, growing to 927%.</p></div>
+      </article>
+
+      <article class="item">
+        <div><h3><a href="https://www.uvu.edu/chss/">UVU Humanities and Social Sciences</a></h3><p class="meta">University web</p></div>
+        <div class="body"><p>Built pages for the college and its programs with staff and faculty.</p></div>
+      </article>
+
+      <article class="item">
+        <div><h3><a href="https://www.uvu.edu/education/">UVU School of Education</a></h3><p class="meta">University web</p></div>
+        <div class="body"><p>Designed and built a new site to bring more students into the program.</p></div>
+      </article>
+
+      <article class="item">
+        <div><h3><a href="http://www.skinsoulretreat.com/">Skin + Soul Retreat</a></h3><p class="meta">Client site</p></div>
+        <div class="body"><p>Designed the site for a training retreat for estheticians.</p></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="wrap">
+      <h2>How I got here</h2>
+      <p>I found code in 2015. I was in college, headed for medicine.</p>
+      <p>Started building sites for local businesses. Then ecommerce. Then AI, inside real companies with real constraints.</p>
+      <p>Same job the whole time, honestly. Make the tool fit the people.</p>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <h2>Let's talk</h2>
+      <p class="intro">Hiring, consulting, or just comparing homelab setups.</p>
+      <a class="big" href="mailto:matsonaaron1@gmail.com">matsonaaron1@gmail.com</a>
+      <ul class="links">
+        <li><a href="https://www.linkedin.com/in/" class="tbd">LinkedIn [add URL]</a></li>
+        <li><a href="https://github.com/aaronmatson1">GitHub</a></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; 2026 Aaron Matson</span>
+    <span>Built in Utah.</span>
+  </div>
+</footer>
+
+</body>
 </html>
