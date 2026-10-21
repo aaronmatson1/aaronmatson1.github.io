@@ -10,32 +10,37 @@
 <meta name="description" content="Aaron Matson. AI enablement consultant and builder in Utah. I help teams put AI to work inside real workflows.">
 <meta property="og:title" content="Aaron Matson">
 <meta property="og:description" content="AI enablement consultant and builder in Utah.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-14 -16 152 152'%3E%3Crect x='-14' y='-16' width='152' height='152' rx='24' fill='%231F2A2C'/%3E%3Cg fill='none' stroke='%2332D9CB' stroke-width='13' stroke-linejoin='round'%3E%3Cpath d='M124 110 H46 A36 36 0 0 1 10 74 V46 A36 36 0 0 1 46 10 H78 A36 36 0 0 1 114 46 V70 A18 18 0 0 1 96 88 A14 14 0 0 1 82 74 V30'/%3E%3Cpath d='M82 52 A18 18 0 0 0 64 34 H52 A18 18 0 0 0 34 52 V70 A18 18 0 0 0 52 88 H58 A24 24 0 0 0 82 64'/%3E%3C/g%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:ital,wght@0,400;0,500;0,700;0,800;1,400&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#F6F7F4;
-  --ink:#1E272B;
-  --muted:#56626A;
-  --lake:#2C6E7A;
-  --sage:#7C8C68;
-  --rule:#D9DED8;
-  --ridge-far:#DCE2DA;
-  --ridge-near:#C3CDBE;
-  --tbd-bg:#FFF4C2;
-  --tbd-ink:#5C4A00;
+  --bg:#F3F6F6;
+  --surface:#FFFFFF;
+  --ink:#24302F;
+  --muted:#5F7174;
+  --slate:#6A888C;
+  --link:#00788B;
+  --cerulean:#00A6C0;
+  --aqua:#32D9CB;
+  --lime:#A5E65A;
+  --rule:#D6DEDF;
+  --band:#1F2A2C;
+  --band-2:#2A383B;
+  --band-ink:#E6EEEE;
+  --band-muted:#9FB3B6;
   color-scheme:light dark;
 }
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
-    --bg:#151B1E; --ink:#E7EBE6; --muted:#9AA6AC; --lake:#6FB3BF; --sage:#9DAE87;
-    --rule:#2C363A; --ridge-far:#1F282C; --ridge-near:#2A3530; --tbd-bg:#4A3F12; --tbd-ink:#FFE89A;
+    --bg:#172022; --surface:#1D282A; --ink:#E6EEEE; --muted:#9FB3B6; --slate:#7F9EA2;
+    --link:#32D9CB; --rule:#2C3A3D; --band:#10181A; --band-2:#1A2427;
   }
 }
 :root[data-theme="dark"]{
-  --bg:#151B1E; --ink:#E7EBE6; --muted:#9AA6AC; --lake:#6FB3BF; --sage:#9DAE87;
-  --rule:#2C363A; --ridge-far:#1F282C; --ridge-near:#2A3530; --tbd-bg:#4A3F12; --tbd-ink:#FFE89A;
+  --bg:#172022; --surface:#1D282A; --ink:#E6EEEE; --muted:#9FB3B6; --slate:#7F9EA2;
+  --link:#32D9CB; --rule:#2C3A3D; --band:#10181A; --band-2:#1A2427;
 }
 
 *{box-sizing:border-box}
@@ -43,40 +48,41 @@ html{scroll-behavior:smooth}
 body{
   margin:0; background:var(--bg); color:var(--ink);
   font-family:"Schibsted Grotesk",system-ui,sans-serif;
-  font-size:1.0625rem; line-height:1.6;
-  -webkit-font-smoothing:antialiased;
+  font-size:1.0625rem; line-height:1.6; -webkit-font-smoothing:antialiased;
 }
-a{color:var(--lake); text-underline-offset:.2em; text-decoration-thickness:1px}
+a{color:var(--link); text-underline-offset:.2em; text-decoration-thickness:1px}
 a:hover{text-decoration-thickness:2px}
-:focus-visible{outline:2px solid var(--lake); outline-offset:3px; border-radius:2px}
-
+:focus-visible{outline:2px solid var(--aqua); outline-offset:3px; border-radius:2px}
 .wrap{max-width:68rem; margin:0 auto; padding:0 1.5rem}
 
-/* nav */
+/* dark hero band: nav + headline + ridge */
+.top{background:var(--band); color:var(--band-ink); position:relative}
 .nav{display:flex; justify-content:space-between; align-items:center; padding:1.25rem 0; gap:1rem}
-.nav .name{font-weight:800; color:var(--ink); text-decoration:none; letter-spacing:-.01em}
+.brand{display:flex; align-items:center; gap:.7rem; color:var(--band-ink); text-decoration:none; font-weight:800; letter-spacing:-.01em}
+.brand svg{width:34px; height:33px}
+.mono path{fill:none; stroke:var(--aqua); stroke-width:11; stroke-linejoin:round; stroke-linecap:butt}
 .nav ul{list-style:none; display:flex; gap:1.5rem; margin:0; padding:0; flex-wrap:wrap}
-.nav ul a{color:var(--muted); text-decoration:none; font-weight:500}
-.nav ul a:hover{color:var(--ink)}
+.nav ul a{color:var(--band-muted); text-decoration:none; font-weight:500}
+.nav ul a:hover{color:var(--band-ink)}
 
-/* hero */
-.hero{position:relative; padding:5rem 0 0; overflow:hidden}
+.hero{padding:4.5rem 0 0}
 .hero h1{
-  font-size:clamp(2.6rem, 7.5vw, 5.4rem); line-height:1.02; letter-spacing:-.035em;
+  font-size:clamp(2.6rem,7.5vw,5.4rem); line-height:1.02; letter-spacing:-.035em;
   font-weight:800; margin:0 0 1.75rem; max-width:17ch; text-wrap:balance;
 }
 .hero h1 span{display:block}
-.hero h1 span + span{color:var(--muted); font-weight:700}
-.hero p.lede{font-size:1.25rem; max-width:38rem; margin:0 0 2rem; color:var(--ink)}
-.actions{display:flex; gap:.75rem; flex-wrap:wrap; margin-bottom:4rem}
-.btn{
-  display:inline-block; padding:.8rem 1.3rem; border-radius:6px; font-weight:700;
-  text-decoration:none; border:1.5px solid var(--ink); color:var(--ink);
-}
-.btn.primary{background:var(--ink); color:var(--bg)}
+.hero h1 span + span{color:var(--aqua); font-weight:700}
+.hero p.lede{font-size:1.25rem; max-width:38rem; margin:0 0 2rem; color:var(--band-muted)}
+.actions{display:flex; gap:.75rem; flex-wrap:wrap; margin-bottom:3.5rem}
+.btn{display:inline-block; padding:.8rem 1.3rem; border-radius:4px; font-weight:700; text-decoration:none;
+  border:1.5px solid var(--band-ink); color:var(--band-ink)}
+.btn.primary{background:var(--aqua); border-color:var(--aqua); color:#0E1A1B}
 .btn:hover{text-decoration:none; transform:translateY(-1px)}
-.ridge{display:block; width:100%; height:auto; margin-top:1rem}
-.ridge .line{fill:none; stroke:var(--ink); stroke-width:1.5; stroke-linejoin:round;
+
+.ridge{display:block; width:100%; height:auto; margin-bottom:-1px}
+.ridge .far{fill:var(--band-2)}
+.ridge .near{fill:var(--bg)}
+.ridge .line{fill:none; stroke:url(#ridgeGrad); stroke-width:2.5; stroke-linejoin:round;
   stroke-dasharray:3000; stroke-dashoffset:3000; animation:draw 2.4s ease-out .2s forwards}
 @keyframes draw{to{stroke-dashoffset:0}}
 @media (prefers-reduced-motion:reduce){
@@ -86,71 +92,68 @@ a:hover{text-decoration-thickness:2px}
 }
 
 /* sections */
-section{padding:5rem 0 2rem}
-.ridge + section, .hero + section{padding-top:4rem}
+section{padding:4.5rem 0 2.5rem}
 h2{font-size:clamp(1.8rem,3.5vw,2.4rem); letter-spacing:-.02em; line-height:1.1; margin:0 0 .6rem; font-weight:800}
-.intro{color:var(--muted); max-width:38rem; margin:0 0 2.5rem}
+.intro{color:var(--muted); max-width:38rem; margin:0 0 2rem}
 
-.item{
-  display:grid; grid-template-columns:15rem 1fr; gap:2.5rem;
-  padding:2rem 0; border-top:1px solid var(--rule);
-}
-.item:last-child{border-bottom:1px solid var(--rule)}
+.item{display:grid; grid-template-columns:15rem 1fr; gap:2.5rem; padding:2rem 2.25rem; margin-bottom:1rem;
+  background:var(--surface);
+  clip-path:polygon(0 0, calc(100% - 2.25rem) 0, 100% 2.25rem, 100% 100%, 0 100%)}
 .item h3{font-size:1.3rem; line-height:1.25; margin:0 0 .4rem; letter-spacing:-.01em}
 .meta{color:var(--muted); font-size:.95rem; margin:0}
 .status{display:inline-flex; align-items:center; gap:.45rem; font-size:.9rem; color:var(--muted); margin-top:.6rem}
-.status::before{content:""; width:.5rem; height:.5rem; border-radius:50%; background:var(--sage)}
-.status.wip::before{background:transparent; border:1.5px solid var(--sage)}
+.status::before{content:""; width:.5rem; height:.5rem; border-radius:50%; background:var(--cerulean)}
+.status.wip::before{background:transparent; border:1.5px solid var(--cerulean)}
 .body p{margin:0 0 .9rem; max-width:40rem}
 .body p:last-child{margin-bottom:0}
 .outcome{font-weight:700}
 .body ul{margin:.25rem 0 .9rem; padding-left:1.1rem; max-width:40rem}
 .body li{margin-bottom:.35rem}
 
-.tbd{
-  background:var(--tbd-bg); color:var(--tbd-ink); padding:.05em .35em; border-radius:3px;
-  font-weight:500; border:1px dashed currentColor;
+/* consulting: dark diagonal band */
+.band{
+  background:var(--band); color:var(--band-ink);
+  clip-path:polygon(0 4rem,100% 0,100% calc(100% - 4rem),0 100%);
+  padding:8rem 0 8rem; margin:2rem 0;
 }
+.band .intro, .band .meta, .band .status{color:var(--band-muted)}
+.band .item{background:var(--band-2)}
+.band .status::before{background:var(--lime)}
+.tiers{display:grid; grid-template-columns:repeat(3,1fr); gap:.75rem; margin-top:1.25rem}
+.tier{padding:1.1rem 1.25rem; background:var(--band)}
+.tier h4{margin:0 0 .3rem; font-size:1rem; color:var(--aqua)}
+.tier p{margin:0; color:var(--band-muted); font-size:.95rem}
 
-/* consulting tiers */
-.tiers{display:grid; grid-template-columns:repeat(3,1fr); gap:0; margin-top:1rem; border-left:1px solid var(--rule)}
-.tier{padding:.25rem 1.25rem; border-right:1px solid var(--rule)}
-.tier h4{margin:0 0 .3rem; font-size:1rem}
-.tier p{margin:0; color:var(--muted); font-size:.95rem}
-
-/* earlier work, compact */
-.earlier .item{grid-template-columns:15rem 1fr; padding:1.4rem 0}
+.earlier .item{padding:1.4rem 2.25rem; margin-bottom:.6rem}
 .earlier h3{font-size:1.1rem}
-
-/* about */
 .about p{font-size:1.25rem; line-height:1.5; max-width:36rem; margin:0 0 .5rem}
 
-/* contact */
 .contact{padding-bottom:3rem}
 .contact .big{font-size:clamp(1.5rem,4vw,2.4rem); font-weight:800; letter-spacing:-.02em; word-break:break-word}
 .links{display:flex; gap:1.5rem; flex-wrap:wrap; margin-top:1.25rem; padding:0; list-style:none}
 
-footer{border-top:1px solid var(--rule); padding:1.5rem 0 2.5rem; color:var(--muted); font-size:.9rem}
-footer .wrap{display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap}
+footer{background:var(--band); color:var(--band-muted); padding:1.75rem 0 2.5rem; font-size:.9rem}
+footer .wrap{display:flex; justify-content:space-between; align-items:center; gap:1rem; flex-wrap:wrap}
+footer .mono{width:24px; height:23px}
 
 @media (max-width:760px){
   .nav ul{gap:1rem; font-size:.95rem}
-  .hero{padding-top:3rem}
-  .item, .earlier .item{grid-template-columns:1fr; gap:.75rem}
-  .tiers{grid-template-columns:1fr; border-left:none}
-  .tier{border-right:none; border-top:1px solid var(--rule); padding:1rem 0}
+  .hero{padding-top:2.5rem}
+  .item, .earlier .item{grid-template-columns:1fr; gap:.75rem; padding:1.5rem 1.25rem;
+    clip-path:polygon(0 0, calc(100% - 1.5rem) 0, 100% 1.5rem, 100% 100%, 0 100%)}
+  .tiers{grid-template-columns:1fr}
+  .band{clip-path:polygon(0 2rem,100% 0,100% calc(100% - 2rem),0 100%); padding:5rem 0}
   section{padding-top:3.5rem}
 }
-@media (max-width:420px){
-  .nav{flex-direction:column; align-items:flex-start}
-}
+@media (max-width:420px){ .nav{flex-direction:column; align-items:flex-start} }
 </style>
 </head>
 <body>
 
+<div class="top">
 <header class="wrap">
   <nav class="nav" aria-label="Main">
-    <a class="name" href="#top">Aaron Matson</a>
+    <a class="brand" href="#top"><svg class="mono" viewBox="0 0 124 120" aria-hidden="true"><path d="M124 110 H46 A36 36 0 0 1 10 74 V46 A36 36 0 0 1 46 10 H78 A36 36 0 0 1 114 46 V70 A18 18 0 0 1 96 88 A14 14 0 0 1 82 74 V30"/><path d="M82 52 A18 18 0 0 0 64 34 H52 A18 18 0 0 0 34 52 V70 A18 18 0 0 0 52 88 H58 A24 24 0 0 0 82 64"/></svg><span>Aaron Matson</span></a>
     <ul>
       <li><a href="#ai-work">AI work</a></li>
       <li><a href="#consulting">Consulting</a></li>
@@ -159,7 +162,6 @@ footer .wrap{display:flex; justify-content:space-between; gap:1rem; flex-wrap:wr
   </nav>
 </header>
 
-<main id="top">
   <div class="hero">
     <div class="wrap">
       <h1><span>I help teams put AI to work.</span><span>Not in a deck. In the workflow.</span></h1>
@@ -171,12 +173,17 @@ footer .wrap{display:flex; justify-content:space-between; gap:1rem; flex-wrap:wr
     </div>
     <!-- Wasatch ridgeline -->
     <svg class="ridge" viewBox="0 0 1200 180" preserveAspectRatio="none" aria-hidden="true">
-      <path fill="var(--ridge-far)" d="M0 120 L70 104 L140 112 L210 86 L270 96 L340 70 L400 82 L460 58 L520 74 L590 50 L640 62 L700 44 L760 66 L830 56 L900 78 L960 64 L1030 88 L1100 76 L1200 96 L1200 180 L0 180 Z"/>
-      <path fill="var(--ridge-near)" d="M0 150 L90 132 L160 140 L250 112 L320 124 L400 98 L450 108 L520 72 L560 84 L610 40 L650 70 L700 92 L780 102 L860 94 L940 118 L1020 108 L1100 130 L1200 122 L1200 180 L0 180 Z"/>
+      <defs><linearGradient id="ridgeGrad" x1="0" x2="1" y1="0" y2="0">
+        <stop offset="0" stop-color="#6A888C"/><stop offset=".45" stop-color="#A5E65A"/><stop offset=".75" stop-color="#32D9CB"/><stop offset="1" stop-color="#00A6C0"/>
+      </linearGradient></defs>
+      <path class="far" d="M0 120 L70 104 L140 112 L210 86 L270 96 L340 70 L400 82 L460 58 L520 74 L590 50 L640 62 L700 44 L760 66 L830 56 L900 78 L960 64 L1030 88 L1100 76 L1200 96 L1200 180 L0 180 Z"/>
+      <path class="near" d="M0 150 L90 132 L160 140 L250 112 L320 124 L400 98 L450 108 L520 72 L560 84 L610 40 L650 70 L700 92 L780 102 L860 94 L940 118 L1020 108 L1100 130 L1200 122 L1200 180 L0 180 Z"/>
       <path class="line" d="M0 150 L90 132 L160 140 L250 112 L320 124 L400 98 L450 108 L520 72 L560 84 L610 40 L650 70 L700 92 L780 102 L860 94 L940 118 L1020 108 L1100 130 L1200 122"/>
     </svg>
   </div>
+</div>
 
+<main id="top">
   <section id="ai-work">
     <div class="wrap">
       <h2>AI work</h2>
@@ -237,7 +244,7 @@ footer .wrap{display:flex; justify-content:space-between; gap:1rem; flex-wrap:wr
     </div>
   </section>
 
-  <section id="consulting">
+  <section id="consulting" class="band">
     <div class="wrap">
       <h2>Consulting</h2>
       <p class="intro">The same work, for businesses outside my day job.</p>
@@ -311,7 +318,7 @@ footer .wrap{display:flex; justify-content:space-between; gap:1rem; flex-wrap:wr
 
 <footer>
   <div class="wrap">
-    <span>&copy; 2026 Aaron Matson</span>
+    <span style="display:flex;align-items:center;gap:.6rem"><svg class="mono" viewBox="0 0 124 120" aria-hidden="true"><path d="M124 110 H46 A36 36 0 0 1 10 74 V46 A36 36 0 0 1 46 10 H78 A36 36 0 0 1 114 46 V70 A18 18 0 0 1 96 88 A14 14 0 0 1 82 74 V30"/><path d="M82 52 A18 18 0 0 0 64 34 H52 A18 18 0 0 0 34 52 V70 A18 18 0 0 0 52 88 H58 A24 24 0 0 0 82 64"/></svg>&copy; 2026 Aaron Matson</span>
     <span>Built in Utah.</span>
   </div>
 </footer>
